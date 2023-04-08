@@ -1,639 +1,727 @@
-30
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
+
 <head>
-    <title>Clark - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Ahmed Sta Portfolio</title>
+    <link href="./assets/AS.png" rel="icon">
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <link rel="stylesheet" href="css/aos.css">
-
-    <link rel="stylesheet" href="css/ionicons.min.css">
-
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Template Google Fonts -->
+    <link rel="preconnect" href="../../../external.html?link=https://fonts.googleapis.com/">
+    <link rel="preconnect" href="../../../external.html?link=https://fonts.gstatic.com/" crossorigin>
+    <link href="../../../external.html?link=https://fonts.googleapis.com/css2?family=Livvic:wght@100;200;300;400;500;600;700&amp;family=Oswald:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <!-- Template CSS Files -->
+    <link rel="stylesheet" href="css/devicon.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- CSS Skin File -->
+    <link rel="stylesheet" href="css/skins/yellow.css">
+    <!-- Live Style Switcher - demo only -->
+    <link rel="alternate stylesheet" type="text/css" title="yellow" href="css/skins/yellow.css">
+    <link rel="alternate stylesheet" type="text/css" title="blue" href="css/skins/blue.css">
+    <link rel="alternate stylesheet" type="text/css" title="green" href="css/skins/green.css">
+    <link rel="alternate stylesheet" type="text/css" title="red" href="css/skins/red.css">
+    <link rel="alternate stylesheet" type="text/css" title="yellowgreen" href="css/skins/yellowgreen.css">
+    <link rel="alternate stylesheet" type="text/css" title="orange" href="css/skins/orange.css">
+    <link rel="alternate stylesheet" type="text/css" title="pink" href="css/skins/pink.css">
+    <link rel="alternate stylesheet" type="text/css" title="goldenrod" href="css/skins/goldenrod.css">
+    <link rel="alternate stylesheet" type="text/css" title="turquoise" href="css/skins/turquoise.css">
+    <link rel="stylesheet" type="text/css" href="css/styleswitcher.css">
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
-
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Clark</a>
-            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-
-            <div class="collapse navbar-collapse" id="ftco-nav">
-                <ul class="navbar-nav nav ml-auto">
-                    <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-                    <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-                    <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-                    <li class="nav-item"><a href="#services-section" class="nav-link"><span>Services</span></a></li>
-                    <li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
-                    <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
-                    <li class="nav-item"><a href="#blog-section" class="nav-link"><span>My Blog</span></a></li>
-                    <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-                </ul>
-            </div>
+<body>
+    <!-- Live Style Switcher Starts - demo only -->
+    <div id="switcher" class="">
+        <div class="content-switcher">
+            <h4>COLOR SWITCHER</h4>
+            <ul>
+                <li>
+                    <a href="#" onclick="setActiveStyleSheet('yellow');" title="yellow" class="color"><img src="assets/styleswitcher/yellow.png" alt="yellow"></a>
+                </li>
+                <li>
+                    <a href="#" onclick="setActiveStyleSheet('green');" title="green" class="color"><img src="assets/styleswitcher/green.png" alt="green"></a>
+                </li>
+                <li>
+                    <a href="#" onclick="setActiveStyleSheet('red');" title="red" class="color"><img src="assets/styleswitcher/red.png" alt="red"></a>
+                </li>
+                <li>
+                    <a href="#" onclick="setActiveStyleSheet('blue');" title="blue" class="color"><img src="assets/styleswitcher/blue.png" alt="blue"></a>
+                </li>
+                <li>
+                    <a href="#" onclick="setActiveStyleSheet('orange');" title="orange" class="color"><img src="assets/styleswitcher/orange.png" alt="orange"></a>
+                </li>
+                <li>
+                    <a href="#" onclick="setActiveStyleSheet('yellowgreen');" title="yellowgreen" class="color"><img src="assets/styleswitcher/yellowgreen.png" alt="yellowgreen"></a>
+                </li>
+                <li>
+                    <a href="#" onclick="setActiveStyleSheet('pink');" title="pink" class="color"><img src="assets/styleswitcher/pink.png" alt="pink"></a>
+                </li>
+                <li>
+                    <a href="#" onclick="setActiveStyleSheet('goldenrod');" title="goldenrod" class="color"><img src="assets/styleswitcher/goldenrod.png" alt="goldenrod"></a>
+                </li>
+            </ul>
+            <div id="hideSwitcher">&times;</div>
         </div>
-    </nav>
-    <section id="home-section" class="hero">
-        <div class="home-slider  owl-carousel">
-            <div class="slider-item ">
-                <div class="overlay"></div>
-                <div class="container">
-                    <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-                        <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_1.png);">
-                            <div class="overlay"></div>
-                        </div>
-                        <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                            <div class="text">
-                                <span class="subheading">Hello!</span>
-                                <h1 class="mb-4 mt-3">I'm <span>Clark Thompson</span></h1>
-                                <h2 class="mb-4">A Freelance Web Designer</h2>
-                                <p><a href="#" class="btn btn-primary py-3 px-4">Hire me</a> <a href="#" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
-                            </div>
-                        </div>
-                    </div>
+    </div>
+    <div id="showSwitcher" class="styleSecondColor"><i class="fa fa-cog"></i></div>
+    <!-- PRELOADER STARTS -->
+    <div id="preloader">
+        <div class="line"></div>
+    </div>
+    <!-- PRELOADER ENDS -->
+    <!-- WRAPPER STARTS -->
+    <div class="page-content">
+        <!-- HEADER STARTS -->
+        <header>
+            <!-- Desktop Menu Starts -->
+            <div class="header-inner hide-mobile">
+                <!-- MENU STARTS -->
+                <div class="menu">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="#home"></a><span class="active" id="home-link">Home</span></li>
+                            <li>
+                                <a href="#about"></a><span id="about-link">About</span></li>
+
+                            <li>
+                                <a href="#portfolio"></a><span id="portfolio-link">Portfolio</span></li>
+                            <li>
+                                <a href="#contact"></a><span id="contact-link">Contact</span></li>
+
+                        </ul>
+                    </nav>
                 </div>
+                <!-- MENU ENDS -->
+
             </div>
+            <!-- Desktop Menu Ends -->
+            <!-- Mobile Menu Starts -->
+            <nav class="mobile-menu">
+                <div id="menuToggle">
+                    <input type="checkbox" id="checkboxmenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <ul class="list-unstyled" id="menu">
+                        <li><a href="#home"><span>Home</span></a></li>
+                        <li><a href="#my-photo"><span>About</span></a></li>
+                        <li><a href="#skills"><span>Skills</span></a></li>
 
-            <div class="slider-item">
-                <div class="overlay"></div>
-                <div class="container">
-                    <div class="row d-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-                        <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_2.png);">
-                            <div class="overlay"></div>
-                        </div>
-                        <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                            <div class="text">
-                                <span class="subheading">Hello!</span>
-                                <h1 class="mb-4 mt-3">I'm a <span>web designer</span> based in London</h1>
-                                <p><a href="#" class="btn btn-primary py-3 px-4">Hire me</a> <a href="#" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
-                            </div>
-                        </div>
-                    </div>
+                        <li><a href="#resume"><span>Resume</span></a></li>
+                        <li><a href="#portfolio"><span>Portfolio</span></a></li>
+                        <li><a href="#contact"><span>Contact</span></a></li>
+                    </ul>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-        <div class="container">
-            <div class="row d-flex">
-                <div class="col-md-6 col-lg-5 d-flex">
-                    <div class="img-about img d-flex align-items-stretch">
-                        <div class="overlay"></div>
-                        <div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/bg_1.png);">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-                    <div class="row justify-content-start pb-3">
-                        <div class="col-md-12 heading-section ftco-animate">
-                            <h1 class="big">About</h1>
-                            <h2 class="mb-4">About Me</h2>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                            <ul class="about-info mt-4 px-md-0 px-2">
-                                <li class="d-flex"><span>Name:</span> <span>Clark Thompson</span></li>
-                                <li class="d-flex"><span>Date of birth:</span> <span>January 01, 1987</span></li>
-                                <li class="d-flex"><span>Address:</span> <span>San Francisco CA 97987 USA</span></li>
-                                <li class="d-flex"><span>Zip code:</span> <span>1000</span></li>
-                                <li class="d-flex"><span>Email:</span> <span>clarkthomp@gmail.com</span></li>
-                                <li class="d-flex"><span>Phone: </span> <span>+1-2234-5678-9-0</span></li>
-                            </ul>
+            </nav>
+            <!-- Mobile Menu Ends -->
+        </header>
+        <!-- HEADER ENDS -->
+        <div id="wrapper">
+            <main class="flex-column-mobile">
+                <!-- HOME SECTION STARTS -->
+                <section class="home image" id="home">
+                    <div>
+                        <div class="position-relative">
+                            <h1>
+                                <span>
+                              <span class="animated-layer">
+                                 Hello<span>.</span>
+                                </span>
+                                </span>
+                                <span class="position-relative">
+                              <span class="animated-layer">
+                              I am
+                              </span>
+                                <span class="intro animated-layer">
+                                 Computer Science Student at ENSI
+                              </span>
+                                </span>
+                                <span>
+                              <span class="animated-layer">
+                              AHMED
+                              </span>
+                                </span>
+                            </h1>
                         </div>
                     </div>
-                    <div class="counter-wrap ftco-animate d-flex mt-md-3">
-                        <div class="text">
-                            <p class="mb-4">
-                                <span class="number" data-number="120">0</span>
-                                <span>Project complete</span>
-                            </p>
-                            <p><a href="#" class="btn btn-primary py-3 px-3">Download CV</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="ftco-section ftco-no-pb" id="resume-section">
-        <div class="container">
-            <div class="row justify-content-center pb-5">
-                <div class="col-md-10 heading-section text-center ftco-animate">
-                    <h1 class="big big-2">Resume</h1>
-                    <h2 class="mb-4">Resume</h2>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="resume-wrap ftco-animate">
-                        <span class="date">2014-2015</span>
-                        <h2>Master Degree of Design</h2>
-                        <span class="position">Cambridge University</span>
-                        <p class="mt-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                    </div>
-                    <div class="resume-wrap ftco-animate">
-                        <span class="date">2014-2015</span>
-                        <h2>Bachelor's Degree of C.A</h2>
-                        <span class="position">Cambridge University</span>
-                        <p class="mt-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                    </div>
-                    <div class="resume-wrap ftco-animate">
-                        <span class="date">2014-2015</span>
-                        <h2>Diploma in Computer</h2>
-                        <span class="position">Cambridge University</span>
-                        <p class="mt-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="resume-wrap ftco-animate">
-                        <span class="date">2014-2015</span>
-                        <h2>Art &amp; Creative Director</h2>
-                        <span class="position">Cambridge University</span>
-                        <p class="mt-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                    </div>
-                    <div class="resume-wrap ftco-animate">
-                        <span class="date">2014-2015</span>
-                        <h2>Wordpress Developer</h2>
-                        <span class="position">Cambridge University</span>
-                        <p class="mt-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                    </div>
-                    <div class="resume-wrap ftco-animate">
-                        <span class="date">2017-2018</span>
-                        <h2>UI/UX Designer</h2>
-                        <span class="position">Cambridge University</span>
-                        <p class="mt-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center mt-5">
-                <div class="col-md-6 text-center ftco-animate">
-                    <p><a href="#" class="btn btn-primary py-4 px-5">Download CV</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="ftco-section" id="services-section">
-        <div class="container">
-            <div class="row justify-content-center py-5 mt-5">
-                <div class="col-md-12 heading-section text-center ftco-animate">
-                    <h1 class="big big-2">Services</h1>
-                    <h2 class="mb-4">Services</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 text-center d-flex ftco-animate">
-                    <a href="#" class="services-1">
-                        <span class="icon">
-								<i class="flaticon-analysis"></i>
-							</span>
-                        <div class="desc">
-                            <h3 class="mb-5">Web Design</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 text-center d-flex ftco-animate">
-                    <a href="#" class="services-1">
-                        <span class="icon">
-								<i class="flaticon-flasks"></i>
-							</span>
-                        <div class="desc">
-                            <h3 class="mb-5">Phtography</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 text-center d-flex ftco-animate">
-                    <a href="#" class="services-1">
-                        <span class="icon">
-								<i class="flaticon-ideas"></i>
-							</span>
-                        <div class="desc">
-                            <h3 class="mb-5">Web Developer</h3>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-md-4 text-center d-flex ftco-animate">
-                    <a href="#" class="services-1">
-                        <span class="icon">
-								<i class="flaticon-analysis"></i>
-							</span>
-                        <div class="desc">
-                            <h3 class="mb-5">App Developing</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 text-center d-flex ftco-animate">
-                    <a href="#" class="services-1">
-                        <span class="icon">
-								<i class="flaticon-flasks"></i>
-							</span>
-                        <div class="desc">
-                            <h3 class="mb-5">Branding</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 text-center d-flex ftco-animate">
-                    <a href="#" class="services-1">
-                        <span class="icon">
-								<i class="flaticon-ideas"></i>
-							</span>
-                        <div class="desc">
-                            <h3 class="mb-5">Product Strategy</h3>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="ftco-section" id="skills-section">
-        <div class="container">
-            <div class="row justify-content-center pb-5">
-                <div class="col-md-12 heading-section text-center ftco-animate">
-                    <h1 class="big big-2">Skills</h1>
-                    <h2 class="mb-4">My Skills</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 animate-box">
-                    <div class="progress-wrap ftco-animate">
-                        <h3>Photoshop</h3>
-                        <div class="progress">
-                            <div class="progress-bar color-1" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-                                <span>90%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 animate-box">
-                    <div class="progress-wrap ftco-animate">
-                        <h3>jQuery</h3>
-                        <div class="progress">
-                            <div class="progress-bar color-2" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%">
-                                <span>85%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 animate-box">
-                    <div class="progress-wrap ftco-animate">
-                        <h3>HTML5</h3>
-                        <div class="progress">
-                            <div class="progress-bar color-3" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width:95%">
-                                <span>95%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 animate-box">
-                    <div class="progress-wrap ftco-animate">
-                        <h3>CSS3</h3>
-                        <div class="progress">
-                            <div class="progress-bar color-4" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-                                <span>90%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 animate-box">
-                    <div class="progress-wrap ftco-animate">
-                        <h3>WordPress</h3>
-                        <div class="progress">
-                            <div class="progress-bar color-5" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                                <span>70%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 animate-box">
-                    <div class="progress-wrap ftco-animate">
-                        <h3>SEO</h3>
-                        <div class="progress">
-                            <div class="progress-bar color-6" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-                                <span>80%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="ftco-section ftco-project" id="projects-section">
-        <div class="container">
-            <div class="row justify-content-center pb-5">
-                <div class="col-md-12 heading-section text-center ftco-animate">
-                    <h1 class="big big-2">Projects</h1>
-                    <h2 class="mb-4">Our Projects</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-4.jpg);">
-                        <div class="overlay"></div>
-                        <div class="text text-center p-4">
-                            <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                            <span>Web Design</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-5.jpg);">
-                        <div class="overlay"></div>
-                        <div class="text text-center p-4">
-                            <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                            <span>Web Design</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-8">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-1.jpg);">
-                        <div class="overlay"></div>
-                        <div class="text text-center p-4">
-                            <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                            <span>Web Design</span>
-                        </div>
-                    </div>
-
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-6.jpg);">
-                        <div class="overlay"></div>
-                        <div class="text text-center p-4">
-                            <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                            <span>Web Design</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-2.jpg);">
-                                <div class="overlay"></div>
-                                <div class="text text-center p-4">
-                                    <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                                    <span>Web Design</span>
+                    <!-- CALL TO ACTION STARTS -->
+                    <span class="animated-layer animated-btn cta" id="cta">
+                     <span>
+                     </span>
+                    </span>
+                    <!-- CALL TO ACTION ENDS -->
+                </section>
+                <!-- HOME SECTION ENDS -->
+                <!-- ABOUT SECTION STARTS -->
+                <section class="about main-section flex-column-mobile" id="about">
+                    <!-- INFO HOLDER STARTS -->
+                    <div class="info flex-column-mobile">
+                        <!-- IMAGE STARTS -->
+                        <div class="img-container animated-layer image-animation my-photo-container fadeInUp wow" data-wow-offset="200" id="my-photo">
+                            <div>
+                                <div>
+                                    <img class="my-photo" src="assets/about.jpg" alt="">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-3.jpg);">
-                                <div class="overlay"></div>
-                                <div class="text text-center p-4">
-                                    <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                                    <span>Web Design</span>
-                                </div>
+                        <!-- IMAGE ENDS -->
+                        <!-- INFO STARTS -->
+                        <div>
+                            <h2>
+                                <span>
+                           <span class="animated-layer fade-in-up-animation fadeInUp wow">
+                           Ahmed
+                           </span>
+                                </span>
+                                <span>
+                           <span class="animated-layer fade-in-up-animation fadeInUp wow">
+                           Sta
+                           </span>
+                                </span>
+                            </h2>
+                            <div class="infos">
+                                <ul>
+                                    <li>
+                                        <span>
+                                 <span class="animated-layer fade-in-up-animation fadeInUp wow">
+                                 <span>Age :</span>
+                                        <span>23 Years</span>
+                                        </span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                 <span class="animated-layer fade-in-up-animation fadeInUp wow">
+                                 <span>Nationality :</span>
+                                        <span>Tunisian</span>
+                                        </span>
+                                        </span>
+                                    </li>
+
+                                    <li>
+                                        <span>
+                                 <span class="animated-layer fade-in-up-animation fadeInUp wow">
+                                 <span>Langages :</span>
+                                        <span>English--French--Arabic</span>
+                                        </span>
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <span>
+                                 <span class="animated-layer fade-in-up-animation fadeInUp wow">
+                                 <span>Address :</span>
+                                        <span>Bizerte</span>
+                                        </span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                 <span class="animated-layer fade-in-up-animation fadeInUp wow">
+                                 <span>Phone :</span>
+                                        <span>52 040 035</span>
+                                        </span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                 <span class="animated-layer fade-in-up-animation fadeInUp wow">
+                                 <span>Email :</span>
+                                        <span>sta.ahmed09@gmail.com</span>
+                                        </span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                 <span class="animated-layer fade-in-up-animation fadeInUp wow">
+                                 
+                                </ul>
                             </div>
                         </div>
+                        <!-- INFO ENDS -->
                     </div>
+                    <!-- INFO HOLDER ENDS -->
+                </section>
+                <section class="skills flex-column-mobile" id="skills">
+                    <!-- SKILLS STARTS -->
+                        <!-- TITLE STARTS -->
+                        <div class="custom-title">
+                            <!-- MAIN TITLE STARTS -->
+                            <h3>
+                                <span>
+                           <span class="animated-layer fade-in-left-animation fadeInUp wow">
+                           My Skills
+                           </span>
+                                        </span>
+                                        </h3>
+                                        <!-- MAIN TITLE ENDS -->
+                            </div>
+
+                            <div class="skills-content">
+                                <div>
+                                    <!-- SKILL ITEM STARTS -->
+                                    <div class="animated-layer fade-in-down-animation fadeInRight wow">
+                                        <span><i class="devicon-tensorflow-original"></i></span>
+                                        <h4>TensorFlow</h4>
+                                    </div>
+                                    <!-- SKILL ITEM ENDS -->
+                                    <!-- SKILL ITEM STARTS -->
+                                    <div class="animated-layer fade-in-up-animation fadeInLeft wow">
+                                        <span><i class="devicon-docker-plain"></i></span>
+                                        <h4>Docker</h4>
+                                    </div>
+                                    <!-- SKILL ITEM ENDS -->
+                                </div>
+                                <div>
+                                    <!-- SKILL ITEM STARTS -->
+                                    <div class="animated-layer fade-in-down-animation fadeInRight wow">
+                                        <span><i class="devicon-numpy-original"></i></span>
+                                        <h4>Numpy</h4>
+                                    </div>
+                                    <!-- SKILL ITEM ENDS -->
+                                    <!-- SKILL ITEM STARTS -->
+                                    <div class="animated-layer fade-in-up-animation fadeInLeft wow">
+                                        <span><i class="devicon-pandas-original"></i></span>
+                                        <h4>Pandas</h4>
+                                    </div>
+                                    <!-- SKILL ITEM ENDS -->
+                                </div>
+                                <div>
+                                    <!-- SKILL ITEM STARTS -->
+                                    <div class="animated-layer fade-in-down-animation fadeInRight wow">
+                                        <span><i class="devicon-html5-plain"></i></span>
+                                        <h4>HTML</h4>
+                                    </div>
+                                    <!-- SKILL ITEM ENDS -->
+                                    <!-- SKILL ITEM STARTS -->
+                                    <div class="animated-layer fade-in-up-animation fadeInLeft wow">
+                                        <span><i class="devicon-css3-plain"></i></span>
+                                        <h4>CSS</h4>
+                                    </div>
+                                    <!-- SKILL ITEM ENDS -->
+                                </div>
+                                <div>
+                                    <!-- SKILL ITEM STARTS -->
+                                    <div class="animated-layer fade-in-down-animation fadeInRight wow">
+                                        <span><i class="devicon-javascript-plain"></i></span>
+                                        <h4>JS</h4>
+                                    </div>
+                                    <!-- SKILL ITEM ENDS -->
+                                    <!-- SKILL ITEM STARTS -->
+                                    <div class="animated-layer fade-in-up-animation fadeInLeft wow">
+                                        <span><i class="devicon-react-plain"></i></span>
+                                        <h4>React JS</h4>
+                                    </div>
+                                    <!-- SKILL ITEM ENDS -->
+                                </div>
+                                <div>
+                                    <!-- SKILL ITEM STARTS -->
+                                    <div class="animated-layer fade-in-down-animation fadeInRight wow">
+                                        <span><i class="devicon-flask-plain"></i></span>
+                                        <h4>Flask</h4>
+                                    </div>
+                                    <!-- SKILL ITEM ENDS -->
+                                    <!-- SKILL ITEM STARTS -->
+                                    <div class="animated-layer fade-in-up-animation fadeInLeft wow">
+                                        <span><i class="devicon-flutter-plain"></i></span>
+                                        <h4>Flutter</h4>
+                                    </div>
+                                    <!-- SKILL ITEM ENDS -->
+                                </div>
+                                <div>
+                                    <!-- SKILL ITEM STARTS -->
+                                    <div class="animated-layer fade-in-down-animation fadeInRight wow">
+                                        <span><i class="devicon-python-plain"></i></span>
+                                        <h4>Python</h4>
+                                    </div>
+                                    <!-- SKILL ITEM ENDS -->
+                                    <!-- SKILL ITEM STARTS -->
+                                    <div class="animated-layer fade-in-up-animation fadeInLeft wow">
+                                        <span><i class="devicon-java-plain"></i></span>
+                                        <h4>Java</h4>
+                                    </div>
+                                    <!-- SKILL ITEM ENDS -->
+                                </div>
+                                <div>
+                                    <!-- SKILL ITEM STARTS -->
+                                    <div class="animated-layer fade-in-down-animation fadeInRight wow">
+                                        <span><i class="devicon-c-plain"></i></span>
+                                        <h4>C</h4>
+                                    </div>
+                                    <!-- SKILL ITEM ENDS -->
+                                    <!-- SKILL ITEM STARTS -->
+                                    <div class="animated-layer fade-in-up-animation fadeInLeft wow">
+                                        <span><i class="devicon-cplusplus-plain"></i></span>
+                                        <h4>C++</h4>
+                                    </div>
+                                    <!-- SKILL ITEM ENDS -->
+                                </div>
+                                <div>
+                                    <!-- SKILL ITEM STARTS -->
+                                    <div class="animated-layer fade-in-down-animation fadeInRight wow">
+                                        <span><i class="devicon-git-plain"></i></span>
+                                        <h4>Git</h4>
+                                    </div>
+                                    <!-- SKILL ITEM ENDS -->
+                                    <!-- SKILL ITEM STARTS -->
+                                    <div class="animated-layer fade-in-up-animation fadeInLeft wow">
+                                        <span><i class="devicon-linux-plain"></i></span>
+                                        <h4>Linux</h4>
+                                    </div>
+                                    <!-- SKILL ITEM ENDS -->
+                                </div>
+
+                            </div>
+                            <!-- SKILLS ENDS -->
+                </section>
+                <section class="resume flex-column-mobile" id="resume">
+                    <!-- RESUME STARTS -->
+                    <!-- TITLE STARTS -->
+                    <div class="custom-title fadeInUp wow">
+                        <!-- MAIN TITLE STARTS -->
+                        <h3>
+                            <span>
+                           <span class="animated-layer fade-in-left-animation">
+                           My Resume
+                           </span>
+                            </span>
+                        </h3>
+                        <!-- MAIN TITLE ENDS -->
+                    </div>
+                    <!-- TITLE ENDS -->
+                    <!-- TIMELINE STARTS -->
+                    <div class="timeline">
+                        <ol class="animated-layer fade-in-animation">
+                            <!-- TIMELINE ITEM STARTS -->
+                            <li>
+                                <div class="animated-layer fade-in-down-animation fadeInUp wow">
+                                    <div class="education">
+                                        <h4>
+                                            Computer Science
+                                        </h4>
+                                        <p>
+                                            <i class="fa-regular fa-clock"></i>
+                                            <span>2021-Now</span>
+                                        </p>
+                                        <p>
+                                            <i class="fa-solid fa-building-columns"></i>
+                                            <span>national school of computer science ,ENSI</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- TIMELINE ITEM ENDS -->
+                            <!-- TIMELINE ITEM STARTS -->
+                            <li>
+                                <div class="animated-layer fade-in-up-animation fadeInUp wow">
+                                    <div class="education">
+                                        <h4>
+                                            Pre-Engineering Studies
+                                        </h4>
+                                        <p>
+                                            <i class="fa-regular fa-clock"></i>
+                                            <span>2019-2021</span>
+                                        </p>
+                                        <p>
+                                            <i class="fa-solid fa-building-columns"></i>
+                                            <span>preparatory institute of engineering studies of tunis,IPEIT</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- TIMELINE ITEM ENDS -->
+                            <!-- TIMELINE ITEM STARTS -->
+                            <li>
+                                <div class="animated-layer fade-in-down-animation fadeInUp wow">
+                                    <div class="education">
+                                        <h4>
+                                            Bachelor Degree
+                                        </h4>
+                                        <p>
+                                            <i class="fa-regular fa-clock"></i>
+                                            <span>2015-2019</span>
+                                        </p>
+                                        <p>
+                                            <i class="fa-solid fa-building-columns"></i>
+                                            <span>Farhat Hached High School</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- TIMELINE ITEM ENDS -->
+                            <li></li>
+                        </ol>
+                    </div>
+                    <!-- TIMELINE ENDS -->
+
+                </section>
+                <!-- RESUME ENDS -->
+                <img alt="" class="separator hide-mobile" src="assets/separator.png">
+                <img alt="" class="separator-mobile-down hide-desktop z-1" src="assets/separator-mobile-down.png">
+
+                <img alt="" class="separator-mobile-up hide-desktop z-1" src="assets/separator-mobile-up.png">
+                <!-- PORTFOLIO SECTION STARTS -->
+                <section class="portfolio main-section flex-column-mobile" id="portfolio">
+                    <!-- TITLE STARTS -->
+                    <div class="custom-title">
+                        <!-- MAIN TITLE STARTS -->
+                        <h3>
+                            <span>
+                        <span class="animated-layer fade-in-left-animation fadeInUp wow">
+                        My Portfolio
+                        </span>
+                            </span>
+                        </h3>
+                        <!-- MAIN TITLE ENDS -->
+                    </div>
+                    <!-- TITLE ENDS -->
+                    <div class="swiper swiper-portfolio animated-layer fade-in-right-animation fadeInUp wow" data-wow-offset="200">
+                        <div class="swiper-wrapper">
+                            <!-- PORTFOLIO ITEM STARTS -->
+                            <div class="single-item swiper-slide">
+                                <!-- ITEM MAIN CONTENT STARTS -->
+                                <div class="main-content">
+                                    <img class="img-fluid" src="assets/portfolio/project-1.jpg" alt="Image Project">
+                                </div>
+                                <!-- ITEM MAIN CONTENT ENDS -->
+                                <!-- ITEM DETAILS STARTS -->
+                                <div class="details">
+                                    <h4>B-Bet</h4>
+                                    <div>
+                                        <ul>
+                                            <li>
+                                                <span>
+                                       <i class="fa-regular fa-file-lines"></i> Project :
+                                       </span>
+                                                <span>Website</span>
+                                            </li>
+
+                                            <li>
+                                                <span><i class="fa-regular fa-hourglass"></i> Duration :</span>
+                                                <span>2 months</span>
+                                            </li>
+                                            <li>
+                                                <span><i class="fa-solid fa-code-branch"></i> tools :</span>
+                                                <span>Machine Learning,Plotly,HTML,CSS,JS</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a href="https://b-bet.netlify.app/" target="_blank" class="custom-btn">
+                                        <span>preview <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                                    </a>
+                                </div>
+                                <!-- ITEM DETAILS ENDS -->
+                            </div>
+                            <!-- PORTFOLIO ITEM ENDS -->
+                            <!-- PORTFOLIO ITEM STARTS -->
+                            <div class="single-item swiper-slide">
+                                <!-- ITEM MAIN CONTENT STARTS -->
+                                <div class="main-content">
+                                    <div class="swiper swiper-portfolio-item">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <img src="assets/portfolio/project-2-1.jpg" title="img">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="assets/portfolio/project-2-2.jpg" title="img">
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <img src="assets/portfolio/project-2-3.jpg" title="img">
+                                            </div>
+                                        </div>
+                                        <div class="swiper-pagination"></div>
+                                    </div>
+                                </div>
+                                <!-- ITEM MAIN CONTENT ENDS -->
+                                <!-- ITEM DETAILS STARTS -->
+                                <div class="details">
+                                    <h4>Disease Detecor</h4>
+                                    <div>
+                                        <ul>
+                                            <li>
+                                                <span>
+                                       <i class="fa-regular fa-file-lines"></i> Project :
+                                       </span>
+                                                <span>Website</span>
+                                            </li>
+
+                                            <li>
+                                                <span><i class="fa-regular fa-hourglass"></i> Duration :</span>
+                                                <span>4 months</span>
+                                            </li>
+                                            <li>
+                                                <span><i class="fa-solid fa-code-branch"></i> Keywords :</span>
+                                                <span>Deep Learning,HTML,CSS,JS,Flask,</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a href="#" target="_blank" class="custom-btn">
+                                        <span>preview <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                                    </a>
+                                </div>
+                                <!-- ITEM DETAILS ENDS -->
+                            </div>
+                            <!-- PORTFOLIO ITEM ENDS -->
+                            <!-- PORTFOLIO ITEM STARTS -->
+                            <div class="single-item swiper-slide">
+                                <!-- ITEM MAIN CONTENT STARTS -->
+                                <div class="main-content">
+                                    <img class="img-fluid" src="assets/portfolio/project-3.jpg" alt="Image Project">
+                                </div>
+                                <!-- ITEM MAIN CONTENT ENDS -->
+                                <!-- ITEM DETAILS STARTS -->
+                                <div class="details">
+                                    <h4>Logik</h4>
+                                    <div>
+                                        <ul>
+                                            <li>
+                                                <span>
+                                       <i class="fa-regular fa-file-lines"></i> Project :
+                                       </span>
+                                                <span>Mobile App</span>
+                                            </li>
+                                            <li>
+                                                <span><i class="fa-regular fa-hourglass"></i> Duration :</span>
+                                                <span>3 months</span>
+                                            </li>
+                                            <li>
+                                                <span><i class="fa-solid fa-code-branch"></i> Keywords :</span>
+                                                <span>Flutter</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a href="#" target="_blank" class="custom-btn">
+                                        <span>preview <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                                    </a>
+                                </div>
+                                <!-- ITEM DETAILS ENDS -->
+                            </div>
+                            <!-- PORTFOLIO ITEM ENDS -->
+
+                        </div>
+                        <div class="nav-item next-item animated-btn"><span></span></div>
+                        <div class="nav-item prev-item animated-btn"><span></span></div>
+                    </div>
+                    <img alt="" class="separator hide-mobile" src="assets/separator.png">
+                </section>
+                <!-- PORTFOLIO SECTION ENDS -->
+                <img alt="" class="separator-mobile-down hide-desktop z-1" src="assets/separator-mobile-down.png">
+
+                <img alt="" class="separator-mobile-up hide-desktop z-1" src="assets/separator-mobile-up.png">
+                <!-- CONTACT SECTION STARTS -->
+                <section class="contact main-section flex-column-mobile" id="contact">
+                    <!-- TITLE STARTS -->
+                    <div class="custom-title">
+                        <!-- MAIN TITLE STARTS -->
+                        <h3>
+                            <span>
+                        <span class="animated-layer fade-in-left-animation fadeInUp wow">
+                        Get in touch
+                        </span>
+                            </span>
+                        </h3>
+                        <!-- MAIN TITLE ENDS -->
+                    </div>
+                    <!-- TITLE ENDS -->
+                    <!-- CONTACTS STARTS -->
+                    <div class="boxes">
+                        <div>
+                            <!-- CONTACT ITEM STARTS -->
+                            <div class="animated-layer fade-in-down-animation fadeInUp wow">
+                                <i class="fa fa-phone"></i>
+                                <p>
+                                    <span class="small-text">phone</span> 52 040 035
+                                </p>
+                            </div>
+                            <!-- CONTACT ITEM ENDS -->
+                            <!-- CONTACT ITEM STARTS -->
+
+                            <div class="animated-layer fade-in-up-animation fadeInUp wow">
+                                <i class="fa fa-location-dot"></i>
+                                <p>
+                                    <span class="small-text">address</span> Bizerte, Tunisia
+                                </p>
+                            </div>
+                            <!-- CONTACT ITEM ENDS -->
+                        </div>
+                        <div>
+                            <!-- CONTACT ITEM STARTS -->
+                            <div class="animated-layer fade-in-down-animation fadeInUp wow">
+                                <i class="fa fa-envelope"></i>
+                                <p>
+                                    <span class="small-text">email</span> sta.ahmed09@gmail.com
+                                </p>
+                            </div>
+                            <!-- CONTACT ITEM ENDS -->
+                            <!-- CONTACT ITEM STARTS -->
+                            <div class="animated-layer fade-in-up-animation fadeInUp wow">
+                                <i class="fa fa-share-nodes"></i>
+                                <span class="small-text">links</span>
+                                <ul class="social">
+                                    <li>
+                                        <a href="https://github.com/STAAHMED11">
+                                            <i class="fa-brands fa-github"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.linkedin.com/in/ahmed-sta-06a721202/">
+                                            <i class="fa-brands fa-linkedin"></i>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="https://www.facebook.com/sta.ahmed.14/">
+                                            <i class="fa-brands fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- CONTACT ITEM ENDS -->
+                        </div>
+                    </div>
+                    <!-- CONTACTS ENDS -->
+                    <img alt="" class="separator hide-mobile" src="assets/separator.png">
+                </section>
+                <!-- CONTACT SECTION ENDS -->
+
+                <img alt="" class="hide-desktop z-1" src="assets/separator-copyright-mobile.png">
+                <!-- COPYRIGHT SECTION STARTS -->
+                <section class="copyright">
+                    <img alt="" class="z-1 hide-mobile" src="assets/separator-copyright.png">
+                    <div>
+                    </div>
+
+                </section>
+                <!-- COPYRIGHT SECTION ENDS -->
+            </main>
+            </div>
+            <!-- SCROLL BAR STARTS -->
+            <div class="scroll-progress hide-mobile">
+                <div>
+                    <div></div>
                 </div>
             </div>
-        </div>
-    </section>
-
-
-
-
-    <section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
-        <div class="container">
-            <div class="row d-md-flex align-items-center">
-                <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-                    <div class="block-18">
-                        <div class="text">
-                            <strong class="number" data-number="100">0</strong>
-                            <span>Awards</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-                    <div class="block-18">
-                        <div class="text">
-                            <strong class="number" data-number="1200">0</strong>
-                            <span>Complete Projects</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-                    <div class="block-18">
-                        <div class="text">
-                            <strong class="number" data-number="1200">0</strong>
-                            <span>Happy Customers</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-                    <div class="block-18">
-                        <div class="text">
-                            <strong class="number" data-number="500">0</strong>
-                            <span>Cups of coffee</span>
-                        </div>
-                    </div>
-                </div>
+            <!-- SCROLL BAR ENDS -->
             </div>
-        </div>
-    </section>
+            <!-- WRAPPER ENDS -->
+            <script src="js/jquery-3.6.3.min.js"></script>
+            <script src="js/jquery.mCustomScrollbar.min.js"></script>
+            <script src="js/swiper-bundle.min.js"></script>
+            <script src="js/wow.min.js"></script>
+            <script src="js/custom.js"></script>
 
-    <section class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-7 ftco-animate text-center">
-                    <h2>I'm <span>Available</span> for freelancing</h2>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                    <p class="mb-0"><a href="#" class="btn btn-primary py-3 px-5">Hire me</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-        <div class="container">
-            <div class="row justify-content-center mb-5 pb-3">
-                <div class="col-md-7 heading-section text-center ftco-animate">
-                    <h1 class="big big-2">Contact</h1>
-                    <h2 class="mb-4">Contact Me</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-                </div>
-            </div>
-
-            <div class="row d-flex contact-info mb-5">
-                <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-                    <div class="align-self-stretch box p-4 text-center">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="icon-map-signs"></span>
-                        </div>
-                        <h3 class="mb-4">Address</h3>
-                        <p>198 West 21th Street, Suite 721 New York NY 10016</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-                    <div class="align-self-stretch box p-4 text-center">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="icon-phone2"></span>
-                        </div>
-                        <h3 class="mb-4">Contact Number</h3>
-                        <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-                    <div class="align-self-stretch box p-4 text-center">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="icon-paper-plane"></span>
-                        </div>
-                        <h3 class="mb-4">Email Address</h3>
-                        <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-                    <div class="align-self-stretch box p-4 text-center">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="icon-globe"></span>
-                        </div>
-                        <h3 class="mb-4">Website</h3>
-                        <p><a href="#">yoursite.com</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row no-gutters block-9">
-                <div class="col-md-6 order-md-last d-flex">
-                    <form action="#" class="bg-light p-4 p-md-5 contact-form">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-                        </div>
-                    </form>
-
-                </div>
-
-                <div class="col-md-6 d-flex">
-                    <div class="img" style="background-image: url(images/about.jpg);"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <footer class="ftco-footer ftco-section">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-md">
-                    <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">About</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="ftco-footer-widget mb-4 ml-md-4">
-                        <h2 class="ftco-heading-2">Links</h2>
-                        <ul class="list-unstyled">
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>About</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Services</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Projects</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Services</h2>
-                        <ul class="list-unstyled">
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Design</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Web Development</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Business Strategy</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Data Analysis</a></li>
-                            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Graphic Design</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Have a Questions?</h2>
-                        <div class="block-23 mb-3">
-                            <ul>
-                                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 text-center">
-
-                    <p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-
-
-    <!-- loader -->
-    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/scrollax.min.js"></script>
-
-    <script src="js/main.js"></script>
-
+            <!-- Style Switcher - Demo Only -->
+            <script src="js/styleswitcher.js"></script>
 </body>
+
+<!-- Mirrored from slimhamdi.net/salimov/demos/index.html by HTTrack Website Copier/3.x [XR&CO'2017], Thu, 30 Mar 2023 07:29:19 GMT -->
 
 </html>
