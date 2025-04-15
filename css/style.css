@@ -820,7 +820,7 @@ header .mobile-menu {
 }
 
 .resume .timeline ol li:not(:first-child) {
-    margin-left: 25px;
+    margin-left: 16px;
 }
 
 .resume .timeline ol li:not(:last-child)::after {
