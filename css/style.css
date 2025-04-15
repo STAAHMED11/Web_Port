@@ -805,8 +805,8 @@ header .mobile-menu {
     position: relative;
     display: inline-block;
     list-style-type: none;
-    width: 200px;
-    height: 3px;
+    width: 300px;
+    height: 30px;
     background: #222;
 }
 
