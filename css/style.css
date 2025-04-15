@@ -806,7 +806,7 @@ header .mobile-menu {
     display: inline-block;
     list-style-type: none;
     width: 300px;
-    height: 30px;
+    height: 3px;
     background: #222;
 }
 
@@ -820,7 +820,7 @@ header .mobile-menu {
 }
 
 .resume .timeline ol li:not(:first-child) {
-    margin-left: 14px;
+    margin-left: 25px;
 }
 
 .resume .timeline ol li:not(:last-child)::after {
@@ -838,7 +838,7 @@ header .mobile-menu {
 .resume .timeline ol li>div {
     position: absolute;
     left: 18px;
-    width: 300px;
+    width: 400px;
     font-size: 1rem;
     white-space: normal;
     background: #222;
