@@ -805,7 +805,7 @@ header .mobile-menu {
     position: relative;
     display: inline-block;
     list-style-type: none;
-    width: 200px;
+    width: 250px;
     height: 3px;
     background: #222;
 }
@@ -815,7 +815,7 @@ header .mobile-menu {
 }
 
 .resume .timeline ol li:last-child {
-    width: 140px;
+    width: 180px;
     opacity: 0;
 }
 
