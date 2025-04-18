@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Architectures</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 {
+            color: #ffb400;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #ddd;
+            font-size: 18px;
+        }
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .architecture-card {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid #ffb400;
+        }
+        .architecture-title {
+            color: #ffb400;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .architecture-diagram {
+            background-color: #262626;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .key-features {
+            margin-top: 15px;
+        }
+        .key-features h4 {
+            color: #ffb400;
+            margin-bottom: 10px;
+        }
+        .key-features ul {
+            padding-left: 20px;
+        }
+        .key-features li {
+            margin-bottom: 5px;
+        }
+        .implementation-steps {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #262626;
+            border-radius: 8px;
+        }
+        .implementation-steps h4 {
+            color: #ffb400;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .step {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .step-number {
+            background-color: #ffb400;
+            color: #121212;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        svg text {
+            fill: #fff;
+        }
+        .highlight {
+            color: #ffb400;
+            font-weight: bold;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .comparison-table th {
+            background-color: #262626;
+            color: #ffb400;
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #ffb400;
+        }
+        .comparison-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #333;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #1a1a1a;
+        }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 {
+            color: #ffb400;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #ddd;
+            font-size: 18px;
+        }
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .architecture-card {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid #ffb400;
+        }
+        .architecture-title {
+            color: #ffb400;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .architecture-diagram {
+            background-color: #262626;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .key-features {
+            margin-top: 15px;
+        }
+        .key-features h4 {
+            color: #ffb400;
+            margin-bottom: 10px;
+        }
+        .key-features ul {
+            padding-left: 20px;
+        }
+        .key-features li {
+            margin-bottom: 5px;
+        }
+        .implementation-steps {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #262626;
+            border-radius: 8px;
+        }
+        .implementation-steps h4 {
+            color: #ffb400;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .step {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .step-number {
+            background-color: #ffb400;
+            color: #121212;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        svg text {
+            fill: #fff;
+        }
+        .highlight {
+            color: #ffb400;
+            font-weight: bold;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .comparison-table th {
+            background-color: #262626;
+            color: #ffb400;
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #ffb400;
+        }
+        .comparison-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #333;
+        }
+        .comparison-table tr:nth-child(even) {
+            background-color: #1a1a1a;
+        }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        .rag-pipeline {
+            background-color: #262626;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .rag-component {
+            background-color: #1e1e1e;
+            border-left: 3px solid #ffb400;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .rag-component-title {
+            color: #ffb400;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .evaluation-section {
+            background-color: #262626;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .technique-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .technique-table th {
+            background-color: #262626;
+            color: #ffb400;
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #ffb400;
+        }
+        .technique-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Retrieval-Augmented Generation (RAG)</h1>
+            <div class="subtitle">Architectures, Implementations & Optimizations</div>
+        </header>
+
+        <div class="architecture-grid">
+            <!-- Introduction to RAG -->
+            <div class="architecture-card full-width">
+                <h3 class="architecture-title">What is RAG?</h3>
+                <div class="architecture-diagram">
+                    <svg width="100%" height="250" viewBox="0 0 800 250">
+                        <!-- Background -->
+                        <rect x="0" y="0" width="800" height="250" fill="#262626" rx="5" ry="5"/>
+                        
+                        <!-- Title -->
+                        <text x="400" y="30" text-anchor="middle" font-size="16" fill="#ffb400">Retrieval-Augmented Generation Pipeline</text>
+                        
+                        <!-- User Query -->
+                        <rect x="50" y="60" width="120" height="40" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="110" y="85" text-anchor="middle" font-size="14">User Query</text>
+                        
+                        <!-- Query Processing -->
+                        <rect x="220" y="60" width="120" height="40" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="280" y="85" text-anchor="middle" font-size="14">Query Processing</text>
+                        
+                        <!-- Vector Database -->
+                        <rect x="390" y="60" width="120" height="100" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="450" y="85" text-anchor="middle" font-size="14">Vector Database</text>
+                        <text x="450" y="110" text-anchor="middle" font-size="12">Documents</text>
+                        <text x="450" y="130" text-anchor="middle" font-size="12">Embeddings</text>
+                        
+                        <!-- Retrieved Context -->
+                        <rect x="560" y="60" width="120" height="40" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="620" y="85" text-anchor="middle" font-size="14">Retrieved Context</text>
+                        
+                        <!-- LLM -->
+                        <rect x="220" y="150" width="120" height="40" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="280" y="175" text-anchor="middle" font-size="14">Language Model</text>
+                        
+                        <!-- Response -->
+                        <rect x="50" y="150" width="120" height="40" fill="#ffb400" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+                        <text x="110" y="175" text-anchor="middle" font-size="14" fill="#121212">Response</text>
+                        
+                        <!-- Flow Arrows -->
+                        <polyline points="170,80 220,80" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+                        <polyline points="340,80 390,80" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+                        <polyline points="510,80 560,80" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+                        <polyline points="620,100 620,170 340,170" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+                        <polyline points="220,170 170,170" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+                        
+                        <!-- Arrow Marker -->
+                        <defs>
+                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#ffb400" />
+                            </marker>
+                        </defs>
+                        
+                        <!-- Labels -->
+                        <text x="700" y="85" text-anchor="middle" font-size="14" fill="#ffb400">Retrieval</text>
+                        <text x="150" y="200" text-anchor="middle" font-size="14" fill="#ffb400">Generation</text>
+                    </svg>
+                </div>
+                <div class="key-features">
+                    <h4>Core Concept</h4>
+                    <p>Retrieval-Augmented Generation (RAG) enhances language model outputs by retrieving relevant external information before generating responses. This approach combines the knowledge retrieval capabilities of search systems with the flexible text generation abilities of large language models.</p>
+                    <h4>Key Benefits</h4>
+                    <ul>
+                        <li><span class="highlight">Up-to-date information</span>: Access to knowledge beyond training data</li>
+                        <li><span class="highlight">Reduced hallucinations</span>: Grounding responses in retrieved facts</li>
+                        <li><span class="highlight">Domain adaptation</span>: Customizing LLMs for specific knowledge domains</li>
+                        <li><span class="highlight">Transparency</span>: Citations and sources can be provided</li>
+                        <li><span class="highlight">Cost efficiency</span>: Can work with smaller models paired with retrieval</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Classic/Basic RAG -->
+            <div class="architecture-card">
+                <h3 class="architecture-title">Classic RAG</h3>
+                <div class="architecture-diagram">
+                    <svg width="100%" height="280" viewBox="0 0 400 280">
+                        <!-- Background -->
+                        <rect x="0" y="0" width="400" height="280" fill="#262626" rx="5" ry="5"/>
+                        
+                        <!-- Query -->
+                        <rect x="50" y="30" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="50" text-anchor="middle" font-size="14">User Query</text>
+                        
+                        <!-- Query Embedding -->
+                        <rect x="50" y="80" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="100" text-anchor="middle" font-size="14">Query Embedding</text>
+                        
+                        <!-- Vector DB Search -->
+                        <rect x="50" y="130" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="150" text-anchor="middle" font-size="14">Vector Similarity Search</text>
+                        
+                        <!-- Context Assembly -->
+                        <rect x="50" y="180" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="200" text-anchor="middle" font-size="14">Context + Query Prompt Construction</text>
+                        
+                        <!-- LLM -->
+                        <rect x="50" y="230" width="300" height="30" fill="#ffb400" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="250" text-anchor="middle" font-size="14" fill="#121212">LLM Response Generation</text>
+                        
+                        <!-- Arrows -->
+                        <polyline points="200,60 200,80" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow2)"/>
+                        <polyline points="200,110 200,130" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow2)"/>
+                        <polyline points="200,160 200,180" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow2)"/>
+                        <polyline points="200,210 200,230" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow2)"/>
+                        
+                        <!-- Arrow Marker -->
+                        <defs>
+                            <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#ffb400" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="key-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Single-step retrieval process</li>
+                        <li>Top-k document retrieval based on similarity</li>
+                        <li>Fixed context window utilized</li>
+                        <li>Simple prompt template with retrieved contexts</li>
+                    </ul>
+                </div>
+                <div class="implementation-steps">
+                    <h4>Implementation Approach</h4>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>Process documents and generate embeddings</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>Store document chunks and vectors in database</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>Generate query embedding and find similar documents</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>Combine query + retrieved context in prompt</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced RAG -->
+            <div class="architecture-card">
+                <h3 class="architecture-title">Advanced RAG</h3>
+                <div class="architecture-diagram">
+                    <svg width="100%" height="280" viewBox="0 0 400 280">
+                        <!-- Background -->
+                        <rect x="0" y="0" width="400" height="280" fill="#262626" rx="5" ry="5"/>
+                        
+                        <!-- Query -->
+                        <rect x="50" y="20" width="300" height="25" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="37" text-anchor="middle" font-size="14">User Query</text>
+                        
+                        <!-- Query Analysis -->
+                        <rect x="50" y="60" width="300" height="25" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="77" text-anchor="middle" font-size="14">Query Analysis & Rewriting</text>
+                        
+                        <!-- Multi-stage Retrieval -->
+                        <rect x="50" y="100" width="300" height="25" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="117" text-anchor="middle" font-size="14">Hybrid Retrieval (BM25 + Vector)</text>
+                        
+                        <!-- Reranking -->
+                        <rect x="50" y="140" width="300" height="25" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="157" text-anchor="middle" font-size="14">Relevance Reranking</text>
+                        
+                        <!-- Context Processing -->
+                        <rect x="50" y="180" width="300" height="25" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="197" text-anchor="middle" font-size="14">Context Filtering & Compression</text>
+                        
+                        <!-- Prompt Engineering -->
+                        <rect x="50" y="220" width="300" height="25" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="237" text-anchor="middle" font-size="14">Advanced Prompt Construction</text>
+                        
+                        <!-- Response Generation -->
+                        <rect x="50" y="260" width="300" height="25" fill="#ffb400" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="277" text-anchor="middle" font-size="12" fill="#121212">Multi-step Generation & Post-processing</text>
+                        
+                        <!-- Arrows -->
+                        <polyline points="200,45 200,60" stroke="#ffb400" stroke-width="1.5" fill="none" marker-end="url(#arrow3)"/>
+                        <polyline points="200,85 200,100" stroke="#ffb400" stroke-width="1.5" fill="none" marker-end="url(#arrow3)"/>
+                        <polyline points="200,125 200,140" stroke="#ffb400" stroke-width="1.5" fill="none" marker-end="url(#arrow3)"/>
+                        <polyline points="200,165 200,180" stroke="#ffb400" stroke-width="1.5" fill="none" marker-end="url(#arrow3)"/>
+                        <polyline points="200,205 200,220" stroke="#ffb400" stroke-width="1.5" fill="none" marker-end="url(#arrow3)"/>
+                        <polyline points="200,245 200,260" stroke="#ffb400" stroke-width="1.5" fill="none" marker-end="url(#arrow3)"/>
+                        
+                        <!-- Arrow Marker -->
+                        <defs>
+                            <marker id="arrow3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#ffb400" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="key-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li><span class="highlight">Query rewriting</span>: Expanding ambiguous queries</li>
+                        <li><span class="highlight">Hybrid search</span>: Combining semantic and keyword search</li>
+                        <li><span class="highlight">Reranking</span>: Improving relevance of retrieved documents</li>
+                        <li><span class="highlight">Context compression</span>: Optimizing retrieved information</li>
+                        <li><span class="highlight">Self-reflection</span>: LLM evaluates its own outputs</li>
+                    </ul>
+                </div>
+                <div class="implementation-steps">
+                    <h4>Implementation Approach</h4>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>Implement query understanding and query expansion</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>Create hybrid retrieval system with multiple indices</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>Add cross-encoder reranking for better relevance</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>Develop self-consistency and verification mechanisms</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recursive RAG -->
+            <div class="architecture-card">
+                <h3 class="architecture-title">Recursive RAG</h3>
+                <div class="architecture-diagram">
+                    <svg width="100%" height="280" viewBox="0 0 400 280">
+                        <!-- Background -->
+                        <rect x="0" y="0" width="400" height="280" fill="#262626" rx="5" ry="5"/>
+                        
+                        <!-- User Query -->
+                        <rect x="50" y="30" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="50" text-anchor="middle" font-size="14">Complex User Query</text>
+                        
+                        <!-- Query Decomposition -->
+                        <rect x="50" y="80" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="100" text-anchor="middle" font-size="14">Query Decomposition into Sub-Queries</text>
+                        
+                        <!-- Sub-query Processing -->
+                        <rect x="75" y="130" width="100" height="60" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="5" ry="5"/>
+                        <text x="125" y="155" text-anchor="middle" font-size="12">Sub-Query 1</text>
+                        <text x="125" y="175" text-anchor="middle" font-size="12">+ Retrieval</text>
+                        
+                        <rect x="225" y="130" width="100" height="60" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="5" ry="5"/>
+                        <text x="275" y="155" text-anchor="middle" font-size="12">Sub-Query 2</text>
+                        <text x="275" y="175" text-anchor="middle" font-size="12">+ Retrieval</text>
+                        
+                        <!-- Synthesis -->
+                        <rect x="50" y="210" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="230" text-anchor="middle" font-size="14">Information Synthesis</text>
+                        
+                        <!-- Final Response -->
+                        <rect x="100" y="260" width="200" height="30" fill="#ffb400" stroke="#333" stroke-width="1" rx="5" ry="5"/>
+                        <text x="200" y="280" text-anchor="middle" font-size="14" fill="#121212">Comprehensive Response</text>
+                        
+                        <!-- Arrows -->
+                        <polyline points="200,60 200,80" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow4)"/>
+                        <polyline points="170,110 125,130" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow4)"/>
+                        <polyline points="230,110 275,130" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow4)"/>
+                        <polyline points="125,190 160,210" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow4)"/>
+                        <polyline points="275,190 240,210" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow4)"/>
+                        <polyline points="200,240 200,260" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow4)"/>
+                        
+                        <!-- Loop arrows -->
+                        <path d="M350,100 C370,110 370,170 350,180" stroke="#ffb400" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arrow4)"/>
+                        <text x="365" y="145" text-anchor="middle" font-size="12" fill="#ffb400" transform="rotate(90 365,145)">Recursion</text>
+                        
+                        <!-- Arrow Marker -->
+                        <defs>
+                            <marker id="arrow4" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#ffb400" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="key-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li><span class="highlight">Query decomposition</span>: Breaking complex queries into simpler ones</li>
+                        <li><span class="highlight">Multi-hop retrieval</span>: Following information chains</li>
+                        <li><span class="highlight">Recursive information gathering</span>: Iterative knowledge building</li>
+                        <li><span class="highlight">Self-questioning</span>: LLM asks follow-up questions</li>
+                        <li><span class="highlight">Synthesis</span>: Combining multiple retrieval results</li>
+                    </ul>
+                </div>
+                <div class="implementation-steps">
+                    <h4>Implementation Approach</h4>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>Create query decomposition module using LLM</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>Implement individual retrieval pipelines for sub-queries</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>Develop recursive retrieval logic with stopping criteria</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>Build synthesizer to combine multiple information sources</div>
+                    </div>
+                </div>
+            </div>
+
+                        <!-- Streaming RAG -->
+            <div class="architecture-card">
+                <h3 class="architecture-title">Streaming RAG</h3>
+                <div class="architecture-diagram">
+                    <svg width="100%" height="280" viewBox="0 0 400 280">
+                        <!-- Background -->
+                        <rect x="0" y="0" width="400" height="280" fill="#262626" rx="5" ry="5"/>
+                        
+                        <!-- Initial Query & Retrieval -->
+                        <rect x="50" y="30" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="50" text-anchor="middle" font-size="14">Initial Query & Retrieval</text>
+                        
+                        <!-- LLM Generation Start -->
+                        <rect x="50" y="80" width="300" height="30" fill="#1e1e1e" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="100" text-anchor="middle" font-size="14">LLM Begins Response Generation</text>
+                        
+                        <!-- Concurrent Processing -->
+                        <rect x="30" y="130" width="160" height="100" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="5" ry="5"/>
+                        <text x="110" y="150" text-anchor="middle" font-size="14">Token Generation</text>
+                        <rect x="50" y="165" width="120" height="20" fill="#333" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="110" y="180" text-anchor="middle" font-size="12">Token 1...n</text>
+                        <rect x="50" y="195" width="120" height="20" fill="#ffb400" stroke="#333" stroke-width="1" rx="3" ry="3"/>
+                        <text x="110" y="210" text-anchor="middle" font-size="12" fill="#121212">Stream to User</text>
+                        
+                        <rect x="210" y="130" width="160" height="100" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="5" ry="5"/>
+                        <text x="290" y="150" text-anchor="middle" font-size="14">Parallel Retrieval</text>
+                        <rect x="230" y="165" width="120" height="20" fill="#333" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="290" y="180" text-anchor="middle" font-size="12">Updated Context</text>
+                        <rect x="230" y="195" width="120" height="20" fill="#333" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="290" y="210" text-anchor="middle" font-size="12">Context Queue</text>
+                        
+                        <!-- Final Response -->
+                        <rect x="50" y="250" width="300" height="30" fill="#ffb400" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="270" text-anchor="middle" font-size="14" fill="#121212">Complete Response with Dynamic Context</text>
+                        
+                        <!-- Arrows -->
+                        <polyline points="200,60 200,80" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow5)"/>
+                        <polyline points="170,110 110,130" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow5)"/>
+                        <polyline points="230,110 290,130" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow5)"/>
+                        <polyline points="110,230 150,250" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow5)"/>
+                        <polyline points="290,230 250,250" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow5)"/>
+                        
+                        <!-- Feedback loop -->
+                        <path d="M175,180 C200,180 200,210 225,210" stroke="#ffb400" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arrow5)"/>
+                        
+                        <!-- Arrow Marker -->
+                        <defs>
+                            <marker id="arrow5" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#ffb400" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="key-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li><span class="highlight">Real-time generation</span>: Immediate response streaming</li>
+                        <li><span class="highlight">Concurrent retrieval</span>: Parallel document search</li>
+                        <li><span class="highlight">Dynamic context updating</span>: Refining context during generation</li>
+                        <li><span class="highlight">Adaptive response</span>: Incorporating new information on-the-fly</li>
+                    </ul>
+                </div>
+                <div class="implementation-steps">
+                    <h4>Implementation Approach</h4>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>Set up token streaming infrastructure</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>Implement parallel retrieval systems</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>Create context queue for ongoing updates</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>Build mechanisms to incorporate new context</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hybrid RAG -->
+            <div class="architecture-card">
+                <h3 class="architecture-title">Hybrid RAG</h3>
+                <div class="architecture-diagram">
+                    <svg width="100%" height="280" viewBox="0 0 400 280">
+                        <!-- Background -->
+                        <rect x="0" y="0" width="400" height="280" fill="#262626" rx="5" ry="5"/>
+                        
+                        <!-- User Query -->
+                        <rect x="50" y="20" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="40" text-anchor="middle" font-size="14">User Query</text>
+                        
+                        <!-- Search Methods -->
+                        <rect x="30" y="70" width="160" height="80" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="5" ry="5"/>
+                        <text x="110" y="90" text-anchor="middle" font-size="14">Vector Search</text>
+                        <rect x="50" y="100" width="120" height="40" fill="#333" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="110" y="125" text-anchor="middle" font-size="12">Semantic Similarity</text>
+                        
+                        <rect x="210" y="70" width="160" height="80" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="5" ry="5"/>
+                        <text x="290" y="90" text-anchor="middle" font-size="14">BM25 Search</text>
+                        <rect x="230" y="100" width="120" height="40" fill="#333" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="290" y="125" text-anchor="middle" font-size="12">Keyword Matching</text>
+                        
+                        <!-- Results Fusion -->
+                        <rect x="50" y="170" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="190" text-anchor="middle" font-size="14">Results Fusion and Ranking</text>
+                        
+                        <!-- LLM Generation -->
+                        <rect x="50" y="220" width="300" height="40" fill="#ffb400" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="245" text-anchor="middle" font-size="14" fill="#121212">Enhanced Response Generation</text>
+                        
+                        <!-- Arrows -->
+                        <polyline points="170,50 110,70" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow6)"/>
+                        <polyline points="230,50 290,70" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow6)"/>
+                        <polyline points="110,150 160,170" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow6)"/>
+                        <polyline points="290,150 240,170" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow6)"/>
+                        <polyline points="200,200 200,220" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow6)"/>
+                        
+                        <!-- Arrow Marker -->
+                        <defs>
+                            <marker id="arrow6" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#ffb400" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="key-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li><span class="highlight">Multiple retrieval methods</span>: Vector search + BM25/keyword search</li>
+                        <li><span class="highlight">Enhanced relevance</span>: Combines semantic and lexical matching</li>
+                        <li><span class="highlight">Improved recall</span>: Finds more relevant documents</li>
+                        <li><span class="highlight">Handles vocabulary mismatch</span>: Better for queries with varied terminology</li>
+                    </ul>
+                </div>
+                <div class="implementation-steps">
+                    <h4>Implementation Approach</h4>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>Set up vector index for semantic search</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>Implement BM25 index for keyword matching</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>Develop results fusion algorithm</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>Build reranking mechanism for final ordering</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HyDE RAG -->
+            <div class="architecture-card">
+                <h3 class="architecture-title">HyDE RAG (Hypothetical Document Embeddings)</h3>
+                <div class="architecture-diagram">
+                    <svg width="100%" height="280" viewBox="0 0 400 280">
+                        <!-- Background -->
+                        <rect x="0" y="0" width="400" height="280" fill="#262626" rx="5" ry="5"/>
+                        
+                        <!-- Query Processing -->
+                        <rect x="50" y="20" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="40" text-anchor="middle" font-size="14">User Query</text>
+                        
+                        <!-- Hypothetical Document -->
+                        <rect x="50" y="70" width="300" height="50" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="90" text-anchor="middle" font-size="14">LLM Generates Hypothetical Document</text>
+                        <text x="200" y="110" text-anchor="middle" font-size="12">"What the answer might look like"</text>
+                        
+                        <!-- Embedding Generation -->
+                        <rect x="50" y="140" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="160" text-anchor="middle" font-size="14">Create Embedding from Hypothetical Document</text>
+                        
+                        <!-- Vector Search -->
+                        <rect x="50" y="190" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="210" text-anchor="middle" font-size="14">Search Vector Database with Generated Embedding</text>
+                        
+                        <!-- LLM Generation -->
+                        <rect x="50" y="240" width="300" height="30" fill="#ffb400" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="260" text-anchor="middle" font-size="14" fill="#121212">Generate Final Response with Retrieved Context</text>
+                        
+                        <!-- Arrows -->
+                        <polyline points="200,50 200,70" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow7)"/>
+                        <polyline points="200,120 200,140" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow7)"/>
+                        <polyline points="200,170 200,190" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow7)"/>
+                        <polyline points="200,220 200,240" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow7)"/>
+                        
+                        <!-- Arrow Marker -->
+                        <defs>
+                            <marker id="arrow7" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#ffb400" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="key-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li><span class="highlight">Query expansion</span>: Creates detailed hypothetical answer</li>
+                        <li><span class="highlight">Domain-specific search</span>: Better matches for specialized content</li>
+                        <li><span class="highlight">Handles complex queries</span>: Especially useful for ambiguous requests</li>
+                        <li><span class="highlight">Improved semantic searching</span>: Matches intent more than keywords</li>
+                    </ul>
+                </div>
+                <div class="implementation-steps">
+                    <h4>Implementation Approach</h4>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>Build prompt for hypothetical document generation</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>Implement document embedding pipeline</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>Create vector search system for hypothetical embedding</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>Develop response generation with retrieved context</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parent Document Retriever -->
+            <div class="architecture-card">
+                <h3 class="architecture-title">Parent Document Retriever</h3>
+                <div class="architecture-diagram">
+                    <svg width="100%" height="280" viewBox="0 0 400 280">
+                        <!-- Background -->
+                        <rect x="0" y="0" width="400" height="280" fill="#262626" rx="5" ry="5"/>
+                        
+                        <!-- Document Processing -->
+                        <rect x="50" y="20" width="300" height="60" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="40" text-anchor="middle" font-size="14">Parent Document</text>
+                        <rect x="60" y="50" width="60" height="20" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="90" y="65" text-anchor="middle" font-size="10">Chunk 1</text>
+                        <rect x="130" y="50" width="60" height="20" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="160" y="65" text-anchor="middle" font-size="10">Chunk 2</text>
+                        <rect x="200" y="50" width="60" height="20" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="230" y="65" text-anchor="middle" font-size="10">Chunk 3</text>
+                        <rect x="270" y="50" width="60" height="20" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="300" y="65" text-anchor="middle" font-size="10">Chunk 4</text>
+                        
+                        <!-- Query -->
+                        <rect x="50" y="100" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="120" text-anchor="middle" font-size="14">User Query</text>
+                        
+                        <!-- Chunk Search -->
+                        <rect x="50" y="150" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="170" text-anchor="middle" font-size="14">Vector Search on Chunks</text>
+                        
+                        <!-- Parent Retrieval -->
+                        <rect x="50" y="200" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="220" text-anchor="middle" font-size="14">Retrieve Full Parent Document</text>
+                        
+                        <!-- Response -->
+                        <rect x="50" y="250" width="300" height="30" fill="#ffb400" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="270" text-anchor="middle" font-size="14" fill="#121212">Generate Response with Complete Context</text>
+                        
+                        <!-- Arrows -->
+                        <polyline points="200,80 200,100" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow8)"/>
+                        <polyline points="200,130 200,150" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow8)"/>
+                        <polyline points="200,180 200,200" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow8)"/>
+                        <polyline points="200,230 200,250" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow8)"/>
+                        
+                        <!-- Arrow Marker -->
+                        <defs>
+                            <marker id="arrow8" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#ffb400" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="key-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li><span class="highlight">Chunk-to-document mapping</span>: Maintains parent-child relationships</li>
+                        <li><span class="highlight">Complete context</span>: Provides broader document context</li>
+                        <li><span class="highlight">Preserves document structure</span>: Maintains overall organization</li>
+                        <li><span class="highlight">Better for complex documents</span>: Useful for nested or structured content</li>
+                    </ul>
+                </div>
+                <div class="implementation-steps">
+                    <h4>Implementation Approach</h4>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>Implement chunking with parent-child mapping</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>Build document storage with metadata linking</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>Create chunk search with parent retrieval logic</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>Develop context assembly from parent documents</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core RAG Components -->
+            <div class="architecture-card full-width">
+                <h3 class="architecture-title">Core RAG Components</h3>
+                <div class="rag-pipeline">
+                    <div class="rag-component">
+                        <div class="rag-component-title">Indexing</div>
+                        <p>Documents in any format are split into chunks, and embeddings for these chunks are created. These embeddings are then added to a vector store for efficient retrieval.</p>
+                    </div>
+                    <div class="rag-component">
+                        <div class="rag-component-title">Retriever</div>
+                        <p>The retriever finds the most relevant documents based on the user's query, using techniques like vector similarity search from the vector store.</p>
+                    </div>
+                    <div class="rag-component">
+                        <div class="rag-component-title">Augment</div>
+                        <p>The Augment component combines the user's query with the retrieved context into a prompt, ensuring the LLM has the information needed to generate accurate responses.</p>
+                    </div>
+                    <div class="rag-component">
+                        <div class="rag-component-title">Generate</div>
+                        <p>The combined query and prompt are passed to the model, which then generates the final response to the user's query based on both the query and retrieved context.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RAG Evaluation -->
+            <div class="architecture-card full-width">
+                <h3 class="architecture-title">RAG Evaluation</h3>
+                <div class="evaluation-section">
+                    <p>Evaluating RAG applications is important for understanding how well these systems work. We can assess how effectively they combine information retrieval with generative models by checking their accuracy and relevance. This evaluation helps improve RAG applications in tasks like text summarization, chatbots, and question-answering.</p>
+                    
+                    <h4 style="color: #ffb400; margin-top: 20px;">Key Evaluation Metrics</h4>
+                    <ul>
+                        <li><span class="highlight">Retrieval Quality</span>: Measuring precision, recall, and relevance of retrieved documents</li>
+                        <li><span class="highlight">Generation Quality</span>: Assessing accuracy, factuality, and coherence of the generated responses</li>
+                        <li><span class="highlight">End-to-End Performance</span>: Evaluating overall system effectiveness in answering user queries</li>
+                        <li><span class="highlight">Hallucination Rate</span>: Quantifying how often the system generates incorrect information</li>
+                    </ul>
+                </div>
+            </div>
