@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agents Workflow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ffb400;
+            --secondary-color: #e6a300;
+            --bg-color: #111111;
+            --light-bg: #222222;
+            --text-color: #f5f5f5;
+            --dark-text: #222;
+        }
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .workflow-container {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .workflow-path {
+            position: absolute;
+            top: 160px;
+            left: 50px;
+            right: 50px;
+            height: 5px;
+            background-color: var(--primary-color);
+            z-index: 1;
+            box-shadow: 0 0 10px rgba(255, 180, 0, 0.5);
+        }
+        
+        .workflow-stages {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stage {
+            width: 200px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            animation: fadeIn 1s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .stage:nth-child(1) { animation-delay: 0.2s; }
+        .stage:nth-child(2) { animation-delay: 0.4s; }
+        .stage:nth-child(3) { animation-delay: 0.6s; }
+        .stage:nth-child(4) { animation-delay: 0.8s; }
+        
+        .stage-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light-bg);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 15px rgba(255, 180, 0, 0.3);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .stage-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 180, 0, 0.6);
+        }
+        
+        .stage-icon i {
+            font-size: 30px;
+            color: var(--primary-color);
+        }
+        
+        .stage-content {
+            padding: 15px;
+            background-color: var(--light-bg);
+            border-radius: 10px;
+            min-height: 180px;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .stage-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .stage-title {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .stage-description {
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+        
+        .data-flow {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            top: 155px;
+            animation: flowAnimation 5s infinite linear;
+        }
+        
+        @keyframes flowAnimation {
+            0% { left: 50px; }
+            100% { left: calc(100% - 50px); }
+        }
+        
+        .agent-detail {
+            background-color: var(--light-bg);
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 150px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s 1s;
+        }
+        
+        .agent-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        
+        .agent-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon {
+            margin-right: 15px;
+            color: var(--primary-color);
+            font-size: 18px;
+            min-width: 20px;
+        }
+        
+        .active-stage {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 180, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 180, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 180, 0, 0); }
+        }
+        
+        .processing {
+            position: absolute;
+            bottom: -30px;
+            width: 100%;
+            text-align: center;
+            animation: processingText 1.5s infinite;
+        }
+        
+        @keyframes processingText {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        
+        .demo-panel {
+            background-color: rgba(255, 180, 0, 0.1);
+            border: 1px solid rgba(255, 180, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .demo-panel h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
+        .demo-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--dark-text);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Agentic AI Workflow</h1>
+            <p class="subtitle">Intelligent automation through autonomous AI agents</p>
+        </header>
+        
+        <div class="workflow-container">
+            <div class="workflow-path"></div>
+            <div class="data-flow"></div>
+            
+            <div class="workflow-stages">
+                <div class="stage">
+                    <div class="stage-icon active-stage">
+                        <i class="fas fa-ear-listen"></i>
+                    </div>
+                    <div class="stage-content">
+                        <div class="stage-title">Input Processing</div>
+                        <div class="stage-description">
+                            Agent processes natural language input through speech recognition and NLP to understand user intent, context, and required actions.
+                        </div>
+                        <div class="processing">Processing...</div>
+                    </div>
+                </div>
+                
+                <div class="stage">
+                    <div class="stage-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="stage-content">
+                        <div class="stage-title">Planning & Reasoning</div>
+                        <div class="stage-description">
+                            Agent determines objectives, creates action plans, breaks complex tasks into subtasks, and selects optimal execution strategies.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stage">
+                    <div class="stage-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="stage-content">
+                        <div class="stage-title">Tool Integration</div>
+                        <div class="stage-description">
+                            Agent interacts with external systems, databases, and APIs to gather information, execute commands, and integrate data for processing.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stage">
+                    <div class="stage-icon">
+                        <i class="fas fa-comment-medical"></i>
+                    </div>
+                    <div class="stage-content">
+                        <div class="stage-title">Output Generation</div>
+                        <div class="stage-description">
+                            Agent synthesizes findings into actionable insights, generates reports, and delivers personalized recommendations through natural language.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="agent-detail">
+            <div class="agent-title">Healthcare AI Agent Capabilities</div>
+            <div class="agent-features">
+                <div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-microphone"></i></div>
+                        <div>Natural language voice interface for intuitive patient interactions</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-stethoscope"></i></div>
+                        <div>Automated patient information collection and medical history analysis</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-folder-open"></i></div>
+                        <div>Real-time access to electronic health records and medical databases</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                        <div>Pattern recognition across symptoms, test results, and patient history</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-file-medical"></i></div>
+                        <div>Automated documentation and diagnostic report generation</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
+                        <div>Workflow automation for appointment scheduling and follow-ups</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="demo-panel">
+            <h3>Showcase Your AI Agent Implementation</h3>
+            <p>This interactive demonstration highlights the key workflows and capabilities of healthcare-focused AI agents you've developed.</p>
+            <a href="#" class="demo-button">View Full Case Study</a>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation classes to make elements visible
+            setTimeout(function() {
+                document.querySelectorAll('.stage, .agent-detail').forEach(function(el) {
+                    el.style.opacity = '1';
+                });
+            }, 100);
+            
+            // Simulate workflow progression
+            let currentStage = 0;
+            const stages = document.querySelectorAll('.stage-icon');
+            
+            function activateNextStage() {
+                stages[currentStage].classList.remove('active-stage');
+                currentStage = (currentStage + 1) % stages.length;
+                stages[currentStage].classList.add('active-stage');
+                
+                // Move "Processing..." text to current stage
+                document.querySelectorAll('.processing').forEach(el => el.remove());
+                const processingDiv = document.createElement('div');
+                processingDiv.className = 'processing';
+                processingDiv.innerText = 'Processing...';
+                stages[currentStage].closest('.stage').querySelector('.stage-content').appendChild(processingDiv);
+            }
+            
+            setInterval(activateNextStage, 4000);
+        });
+    </script>
+</body>
+</html>

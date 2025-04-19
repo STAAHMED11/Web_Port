@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Architectures</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 {
+            color: #ffb400;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #ddd;
+            font-size: 18px;
+        }
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .architecture-card {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-left: 4px solid #ffb400;
+        }
+        .architecture-title {
+            color: #ffb400;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .architecture-diagram {
+            background-color: #262626;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .key-features {
+            margin-top: 15px;
+        }
+        .key-features h4 {
+            color: #ffb400;
+            margin-bottom: 10px;
+        }
+        .key-features ul {
+            padding-left: 20px;
+        }
+        .key-features li {
+            margin-bottom: 5px;
+        }
+        .implementation-steps {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #262626;
+            border-radius: 8px;
+        }
+        .implementation-steps h4 {
+            color: #ffb400;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .step {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .step-number {
+            background-color: #ffb400;
+            color: #121212;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        svg text {
+            fill: #fff;
+        }
+        .highlight {
+            color: #ffb400;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Large Language Model Architectures</h1>
+            <div class="subtitle">Key architectures and implementation approaches</div>
+        </header>
+
+        <div class="architecture-grid">
+            <!-- Transformer Architecture -->
+            <div class="architecture-card">
+                <h3 class="architecture-title">Transformer Architecture</h3>
+                <div class="architecture-diagram">
+                    <svg width="100%" height="300" viewBox="0 0 400 300">
+                        <!-- Background -->
+                        <rect x="0" y="0" width="400" height="300" fill="#262626" rx="5" ry="5"/>
+                        
+                        <!-- Encoder -->
+                        <rect x="50" y="50" width="100" height="200" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="100" y="40" text-anchor="middle" font-size="14">Encoder</text>
+                        
+                        <!-- Self-Attention Blocks in Encoder -->
+                        <rect x="65" y="70" width="70" height="40" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="100" y="95" text-anchor="middle" font-size="12">Self-Attention</text>
+                        
+                        <rect x="65" y="130" width="70" height="40" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="100" y="155" text-anchor="middle" font-size="12">Feed Forward</text>
+                        
+                        <rect x="65" y="190" width="70" height="40" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="100" y="215" text-anchor="middle" font-size="12">Norm + Residual</text>
+                        
+                        <!-- Decoder -->
+                        <rect x="250" y="50" width="100" height="200" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="300" y="40" text-anchor="middle" font-size="14">Decoder</text>
+                        
+                        <!-- Self-Attention Blocks in Decoder -->
+                        <rect x="265" y="70" width="70" height="40" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="300" y="95" text-anchor="middle" font-size="12">Masked Attention</text>
+                        
+                        <rect x="265" y="130" width="70" height="40" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="300" y="155" text-anchor="middle" font-size="12">Cross-Attention</text>
+                        
+                        <rect x="265" y="190" width="70" height="40" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="300" y="215" text-anchor="middle" font-size="12">Feed Forward</text>
+                        
+                        <!-- Connecting Lines -->
+                        <line x1="150" y1="90" x2="250" y2="90" stroke="#ffb400" stroke-width="2" stroke-dasharray="5,5"/>
+                        <line x1="150" y1="150" x2="250" y2="150" stroke="#ffb400" stroke-width="2" stroke-dasharray="5,5"/>
+                        <line x1="150" y1="210" x2="250" y2="210" stroke="#ffb400" stroke-width="2" stroke-dasharray="5,5"/>
+                    </svg>
+                </div>
+                <div class="key-features">
+                    <h4>Key Components</h4>
+                    <ul>
+                        <li>Self-attention mechanisms</li>
+                        <li>Multi-headed attention</li>
+                        <li>Layer normalization</li>
+                        <li>Residual connections</li>
+                        <li>Position embeddings</li>
+                    </ul>
+                </div>
+                <div class="implementation-steps">
+                    <h4>Implementation Approach</h4>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>Define token embeddings and positional encodings</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>Implement multi-head attention mechanism</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>Build encoder/decoder blocks with feed-forward networks</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>Stack multiple layers with residual connections</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decoder-Only Architecture -->
+            <div class="architecture-card">
+                <h3 class="architecture-title">Decoder-Only Architecture</h3>
+                <div class="architecture-diagram">
+                    <svg width="100%" height="300" viewBox="0 0 400 300">
+                        <!-- Background -->
+                        <rect x="0" y="0" width="400" height="300" fill="#262626" rx="5" ry="5"/>
+                        
+                        <!-- Input Embeddings -->
+                        <rect x="50" y="40" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="3" ry="3"/>
+                        <text x="200" y="60" text-anchor="middle" font-size="14">Token + Position Embeddings</text>
+                        
+                        <!-- Decoder Stack -->
+                        <rect x="100" y="90" width="200" height="170" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="110" text-anchor="middle" font-size="14">Decoder Stack</text>
+                        
+                        <!-- Layers -->
+                        <rect x="120" y="125" width="160" height="25" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="200" y="142" text-anchor="middle" font-size="12">Self-Attention (Masked)</text>
+                        
+                        <rect x="120" y="160" width="160" height="25" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="200" y="177" text-anchor="middle" font-size="12">Feed Forward Network</text>
+                        
+                        <rect x="120" y="195" width="160" height="25" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="200" y="212" text-anchor="middle" font-size="12">Layer Normalization</text>
+                        
+                        <!-- Output -->
+                        <rect x="120" y="230" width="160" height="20" fill="#ffb400" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="200" y="245" text-anchor="middle" font-size="12" fill="#121212">Linear + Softmax</text>
+                        
+                        <!-- Arrows -->
+                        <polyline points="200,70 200,90" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+                        <polyline points="200,260 200,280" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+                        
+                        <!-- Arrow Marker -->
+                        <defs>
+                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#ffb400" />
+                            </marker>
+                        </defs>
+                        
+                        <!-- Output Text -->
+                        <text x="200" y="290" text-anchor="middle" font-size="14" fill="#ffb400">Token Predictions</text>
+                    </svg>
+                </div>
+                <div class="key-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Causal (masked) self-attention only</li>
+                        <li>Autoregressive generation</li>
+                        <li>Models like <span class="highlight">GPT</span>, <span class="highlight">LLaMA</span>, and <span class="highlight">Claude</span></li>
+                        <li>Optimized for text generation</li>
+                    </ul>
+                </div>
+                <div class="implementation-steps">
+                    <h4>Implementation Approach</h4>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>Implement causal attention masking</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>Build deep stacks of masked self-attention layers</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>Add layer normalization and residual connections</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>Implement autoregressive sampling for inference</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Encoder-Only Architecture -->
+            <div class="architecture-card">
+                <h3 class="architecture-title">Encoder-Only Architecture</h3>
+                <div class="architecture-diagram">
+                    <svg width="100%" height="300" viewBox="0 0 400 300">
+                        <!-- Background -->
+                        <rect x="0" y="0" width="400" height="300" fill="#262626" rx="5" ry="5"/>
+                        
+                        <!-- Input -->
+                        <rect x="50" y="40" width="300" height="30" fill="#333" stroke="#ffb400" stroke-width="2" rx="3" ry="3"/>
+                        <text x="200" y="60" text-anchor="middle" font-size="14">Token + Position Embeddings</text>
+                        
+                        <!-- Encoder Layers -->
+                        <rect x="100" y="90" width="200" height="160" fill="#333" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        <text x="200" y="110" text-anchor="middle" font-size="14">Encoder Stack</text>
+                        
+                        <rect x="120" y="125" width="160" height="25" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="200" y="142" text-anchor="middle" font-size="12">Bidirectional Self-Attention</text>
+                        
+                        <rect x="120" y="160" width="160" height="25" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="200" y="177" text-anchor="middle" font-size="12">Feed Forward Network</text>
+                        
+                        <rect x="120" y="195" width="160" height="25" fill="#1e1e1e" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="200" y="212" text-anchor="middle" font-size="12">Layer Normalization</text>
+                        
+                        <!-- Output Layers -->
+                        <rect x="120" y="240" width="160" height="30" fill="#ffb400" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="200" y="260" text-anchor="middle" font-size="12" fill="#121212">Task-Specific Heads</text>
+                        
+                        <!-- Arrows -->
+                        <polyline points="200,70 200,90" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow2)"/>
+                        <polyline points="200,250 160,280" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow2)"/>
+                        <polyline points="200,250 240,280" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow2)"/>
+                        
+                        <!-- Arrow Marker -->
+                        <defs>
+                            <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#ffb400" />
+                            </marker>
+                        </defs>
+                        
+                        <!-- Output Labels -->
+                        <text x="160" y="290" text-anchor="middle" font-size="12" fill="#fff">Classification</text>
+                        <text x="240" y="290" text-anchor="middle" font-size="12" fill="#fff">Tagging</text>
+                    </svg>
+                </div>
+                <div class="key-features">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>Bidirectional context processing</li>
+                        <li>Models like <span class="highlight">BERT</span> and <span class="highlight">RoBERTa</span></li>
+                        <li>Strong for classification tasks</li>
+                        <li>Optimized for understanding</li>
+                    </ul>
+                </div>
+                <div class="implementation-steps">
+                    <h4>Implementation Approach</h4>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>Create bidirectional self-attention mechanism</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>Build deep encoder stack with residual connections</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>Add task-specific output layers (classification, etc.)</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>Implement masked language modeling pretraining</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modern LLM Optimization Techniques -->
+            <div class="architecture-card">
+                <h3 class="architecture-title">LLM Training & Optimization</h3>
+                <div class="architecture-diagram">
+                    <svg width="100%" height="300" viewBox="0 0 400 300">
+                        <!-- Background -->
+                        <rect x="0" y="0" width="400" height="300" fill="#262626" rx="5" ry="5"/>
+                        
+                        <!-- Training Process -->
+                        <rect x="50" y="30" width="300" height="240" fill="#1e1e1e" stroke="#ffb400" stroke-width="2" rx="5" ry="5"/>
+                        
+                        <!-- Stages -->
+                        <rect x="70" y="50" width="260" height="40" fill="#333" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="200" y="75" text-anchor="middle" font-size="14">Pre-training (Next Token Prediction)</text>
+                        
+                        <rect x="70" y="110" width="260" height="40" fill="#333" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="200" y="135" text-anchor="middle" font-size="14">Supervised Fine-tuning (SFT)</text>
+                        
+                        <rect x="70" y="170" width="260" height="40" fill="#333" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="200" y="195" text-anchor="middle" font-size="14">Reinforcement Learning (RLHF/RLAIF)</text>
+                        
+                        <!-- Optimization Methods -->
+                        <rect x="70" y="230" width="125" height="30" fill="#ffb400" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="132" y="250" text-anchor="middle" font-size="12" fill="#121212">Quantization</text>
+                        
+                        <rect x="205" y="230" width="125" height="30" fill="#ffb400" stroke="#ffb400" stroke-width="1" rx="3" ry="3"/>
+                        <text x="267" y="250" text-anchor="middle" font-size="12" fill="#121212">Distillation</text>
+                        
+                        <!-- Arrows -->
+                        <polyline points="200,90 200,110" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow3)"/>
+                        <polyline points="200,150 200,170" stroke="#ffb400" stroke-width="2" fill="none" marker-end="url(#arrow3)"/>
+                        
+                        <!-- Arrow Marker -->
+                        <defs>
+                            <marker id="arrow3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#ffb400" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="key-features">
+                    <h4>Optimization Techniques</h4>
+                    <ul>
+                        <li><span class="highlight">Quantization</span>: INT8/INT4 precision</li>
+                        <li><span class="highlight">KV Cache</span>: Memory optimization</li>
+                        <li><span class="highlight">Flash Attention</span>: Faster computation</li>
+                        <li><span class="highlight">LoRA</span>: Parameter-efficient fine-tuning</li>
+                        <li><span class="highlight">Mixture of Experts</span>: Conditional computation</li>
+                    </ul>
+                </div>
+                <div class="implementation-steps">
+                    <h4>Implementation Best Practices</h4>
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>Start with pretrained checkpoint when possible</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>Use parameter-efficient fine-tuning for adaptation</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>Apply quantization for deployment efficiency</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>Implement optimized attention algorithms</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            LLM Architecture Overview • Portfolio Visualization • © 2025
+        </footer>
+    </div>
+</body>
+</html>
